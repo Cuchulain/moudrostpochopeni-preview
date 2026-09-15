@@ -1,0 +1,291 @@
+---
+import ActionLink from '../components/ActionLink.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const situations = [
+  {
+    number: '01',
+    title: 'Neseš toho příliš',
+    copy: 'Práce, vztahy i péče o ostatní pokračují, ale tvoje energie už nestačí na všechno.',
+  },
+  {
+    number: '02',
+    title: 'Všechno spolu souvisí',
+    copy: 'Jedna starost přechází do druhé a je těžké poznat, kde má změna vůbec začít.',
+  },
+  {
+    number: '03',
+    title: 'Potřebuješ pevný bod',
+    copy: 'Ne další rychlou radu, ale klidný prostor, ve kterém lze situaci postupně rozplést.',
+  },
+];
+
+const steps = [
+  {
+    label: 'Nejprve naslouchání',
+    title: 'Krátce probereme, co se děje',
+    copy: 'Řekneš jen tolik, kolik je ti příjemné. Společně si ujasníme očekávání i to, čemu je dobré věnovat pozornost jako prvnímu.',
+  },
+  {
+    label: 'Potom orientace',
+    title: 'Domluvíme vhodnou cestu',
+    copy: 'Nemusíš si předem vybírat techniku. Podíváme se na možnosti spolupráce, jejich hranice i praktický průběh.',
+  },
+  {
+    label: 'Nakonec první krok',
+    title: 'Začneme tím, co je zvládnutelné',
+    copy: 'Setkání se zaměří na konkrétní krok, který dává smysl právě teď — bez tlaku na okamžité nebo zaručené výsledky.',
+  },
+];
+
+const services = [
+  {
+    icon: 'dialogue',
+    title: 'Koučovací rozhovor',
+    copy: 'Pro ujasnění situace, vlastních možností a kroků, které můžeš ovlivnit.',
+    note: 'Osobně i online podle domluvy',
+  },
+  {
+    icon: 'pause',
+    title: 'Prostor pro zklidnění',
+    copy: 'Relaxační a dotekové služby pro odpočinek a subjektivní pocit uvolnění.',
+    note: 'Osobně v Havlíčkově Brodě',
+  },
+  {
+    icon: 'compass',
+    title: 'Nevíš, co vybrat?',
+    copy: 'Začni nezávazným rozhovorem. Metodu není potřeba určit ještě před prvním kontaktem.',
+    note: 'Společně vyjasníme další krok',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Musím vědět, kterou službu chci?',
+    a: 'Nemusíš. Stačí stručně popsat, co se teď děje. Vhodné možnosti a jejich hranice můžeme projít při úvodním rozhovoru.',
+  },
+  {
+    q: 'Probíhá spolupráce osobně, nebo online?',
+    a: 'Osobní setkání probíhají v Havlíčkově Brodě. U některých služeb je možná také online forma; konkrétní možnost si potvrdíme při domluvě.',
+  },
+  {
+    q: 'Co se stane při prvním kontaktu?',
+    a: 'Krátce si ujasníme tvoji situaci, očekávání a to, zda nabízená spolupráce odpovídá tomu, co právě potřebuješ. Kontakt tě nezavazuje k objednání.',
+  },
+  {
+    q: 'Nahrazují služby lékaře nebo psychologa?',
+    a: 'Ne. Nabízené konzultace a relaxační služby nejsou zdravotní péčí ani psychoterapií a nenahrazují vyšetření, diagnostiku nebo léčbu.',
+  },
+];
+
+const iconPaths = {
+  dialogue: 'M7 7h10M7 11h7M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8l-5 4v-4H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z',
+  pause: 'M12 22c5-3 8-8 8-14-6 0-11 3-14 8 1 3 3 5 6 6Zm0 0c-4-3-7-7-8-12 5 0 9 2 12 6',
+  compass: 'm15 9-2 4-4 2 2-4 4-2Zm6 3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z',
+};
+---
+
+<BaseLayout
+  title="Koučink a podpora při životním přetížení | Dita Doleželová"
+  description="Když se propojí stres, vztahy, únava nebo změny a nevíš, kde začít. Osobní setkání v Havlíčkově Brodě, podle služby také online."
+>
+  <SiteHeader />
+
+  <main id="hlavni-obsah">
+    <section class="hero" id="top">
+      <div class="hero__wash" aria-hidden="true"></div>
+      <div class="shell hero__grid">
+        <div class="hero__copy reveal reveal--1">
+          <p class="eyebrow">Koučink a podpůrné rozhovory · Havlíčkův Brod</p>
+          <h1>Když se toho v životě nahromadí <em>příliš</em> a nevíš, kde začít</h1>
+          <p class="hero__lead">Stres, vztahy, zdraví, práce nebo náročná změna spolu často souvisejí. Pomohu ti zorientovat se, najít pevný bod a zvolit první zvládnutelný krok.</p>
+          <p class="hero__note">Nemusíš předem vědět, která metoda je pro tebe vhodná.</p>
+          <div class="hero__actions">
+            <ActionLink href="#kontakt">Domluvit nezávazný rozhovor</ActionLink>
+            <ActionLink href="#spoluprace" variant="text">Jak spolupráce probíhá</ActionLink>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal reveal--2">
+          <div class="hero__arch">
+            <img
+              src={`${base}/dita-about.webp`}
+              alt="Dita Doleželová při rozhovoru s klientkou"
+              width="768"
+              height="664"
+              loading="eager"
+            />
+          </div>
+          <div class="hero__signature" aria-hidden="true">
+            <svg viewBox="0 0 170 78"><path d="M3 54c25-31 54-42 87-32 17 6 25 18 12 26-14 9-36 4-30-9 5-11 31-15 53-5 17 7 28 19 42 10" /></svg>
+          </div>
+          <aside class="hero__card">
+            <span>Osobně</span>
+            <strong>Havlíčkův Brod</strong>
+            <small>Podle služby také online</small>
+          </aside>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#kde-zacit" aria-label="Pokračovat na další část">
+        <span>Pokračovat</span><i aria-hidden="true"></i>
+      </a>
+    </section>
+
+    <section class="situations section" id="kde-zacit">
+      <div class="shell">
+        <SectionIntro
+          eyebrow="Možná se v tom poznáváš"
+          title="Když už nejde oddělit jeden problém od druhého"
+          copy="Není nutné přijít s hotovým zadáním. Prvním krokem může být právě společné ujasnění, co teď potřebuje největší pozornost."
+        />
+        <div class="situations__grid">
+          {situations.map((item) => (
+            <article class="situation-card">
+              <span>{item.number}</span>
+              <h3>{item.title}</h3>
+              <p>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="process section" id="spoluprace">
+      <div class="process__shape" aria-hidden="true"></div>
+      <div class="shell process__grid">
+        <div class="process__intro">
+          <SectionIntro
+            eyebrow="Jak spolupráce probíhá"
+            title="Klidně, srozumitelně a krok za krokem"
+            copy="Bez nutnosti mít všechno pojmenované předem."
+          />
+          <blockquote>
+            <p>„Nejdřív hledáme pevný bod. Teprve potom vybíráme cestu.“</p>
+          </blockquote>
+        </div>
+        <ol class="process__steps">
+          {steps.map((step, index) => (
+            <li>
+              <span class="process__number">{String(index + 1).padStart(2, '0')}</span>
+              <div>
+                <p class="process__label">{step.label}</p>
+                <h3>{step.title}</h3>
+                <p>{step.copy}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="services section" id="sluzby">
+      <div class="shell">
+        <SectionIntro
+          eyebrow="Možnosti podpory"
+          title="Začneme situací. Metodu vybereme až potom."
+          copy="Každá služba má jiné možnosti a hranice. Přehled proto pomáhá pochopit rozdíly, ne slibovat výsledek."
+          align="center"
+        />
+        <div class="services__grid">
+          {services.map((service, index) => (
+            <article class:list={['service-card', index === 2 && 'service-card--accent']}>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d={iconPaths[service.icon as keyof typeof iconPaths]} /></svg>
+              </span>
+              <h3>{service.title}</h3>
+              <p>{service.copy}</p>
+              <small>{service.note}</small>
+            </article>
+          ))}
+        </div>
+        <div class="services__action">
+          <ActionLink href="#kontakt" variant="secondary">Pomoci s výběrem prvního kroku</ActionLink>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="o-dite">
+      <div class="shell about__grid">
+        <div class="about__portrait">
+          <div class="about__image-frame about__monogram" aria-hidden="true">
+            <span>D</span>
+            <svg viewBox="0 0 300 300"><path d="M40 210c42-89 119-131 220-118M68 247c55-61 119-92 191-91" /></svg>
+          </div>
+          <p class="about__caption">Dita Doleželová<br /><span>koučka a průvodkyně</span></p>
+        </div>
+        <div class="about__copy">
+          <SectionIntro eyebrow="Kdo tě bude provázet" title="Naslouchám tomu, co se za slovy opravdu odehrává" />
+          <p class="about__lead">Při práci pomáhám hledat souvislosti a další praktický krok. Zakládám si na respektu, srozumitelné domluvě a možnosti postupovat vlastním tempem.</p>
+          <div class="about__principles">
+            <div><span>01</span><p>Bez hodnocení a tlaku na rychlé rozhodnutí</p></div>
+            <div><span>02</span><p>S jasnou domluvou o možnostech a hranicích služby</p></div>
+            <div><span>03</span><p>Osobně v Havlíčkově Brodě, podle domluvy online</p></div>
+          </div>
+          <ActionLink href="https://moudrostpochopeni.cz/neco-malo-o-mne/" variant="text">Poznat Ditu a její vzdělání</ActionLink>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial section" aria-labelledby="reference-title">
+      <div class="shell testimonial__inner">
+        <p class="eyebrow">Zkušenosti klientů</p>
+        <div class="testimonial__mark" aria-hidden="true">“</div>
+        <blockquote>
+          <p id="reference-title">Dity vedení je přímé, ale jemné. Na ženských kruzích utváří bezpečný prostor podpory, velké míry empatie a ukotvení tady a teď.</p>
+          <footer>Lucie Matoušová · autentická citace z webu</footer>
+        </blockquote>
+        <p class="testimonial__note">Jde o osobní zkušenost klientky. Výsledek spolupráce je individuální a reference není příslibem výsledku.</p>
+      </div>
+    </section>
+
+    <section class="faq section" id="otazky">
+      <div class="shell faq__grid">
+        <div class="faq__intro">
+          <SectionIntro eyebrow="Časté otázky" title="Co je dobré vědět před prvním kontaktem" />
+          <p>Chybí ti odpověď? Můžeš se zeptat bez závazku k objednání.</p>
+          <ActionLink href="#kontakt" variant="text">Napsat vlastní otázku</ActionLink>
+        </div>
+        <div class="faq__list">
+          {faqs.map((faq, index) => (
+            <details open={index === 0}>
+              <summary>{faq.q}<span aria-hidden="true"></span></summary>
+              <p>{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="boundary" aria-labelledby="boundary-title">
+      <div class="shell boundary__inner">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3 8 8 10 5-2 8-5 8-10V6l-8-3Zm-3 9 2 2 4-5" /></svg>
+        <div>
+          <h2 id="boundary-title">Bezpečné hranice spolupráce</h2>
+          <p>Nabízené konzultace a relaxační služby nejsou zdravotní péčí, psychoterapií ani náhradou vyšetření, diagnostiky či léčby. Při akutních, závažných nebo zhoršujících se potížích se obrať na kvalifikovaného zdravotníka. V bezprostředním ohrožení života nebo zdraví volej 155 nebo 112.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section" id="kontakt">
+      <div class="contact__orb contact__orb--one" aria-hidden="true"></div>
+      <div class="contact__orb contact__orb--two" aria-hidden="true"></div>
+      <div class="shell contact__inner">
+        <p class="eyebrow">První krok může být malý</p>
+        <h2>Nemusíš mít všechno vyřešené, aby šlo začít</h2>
+        <p>Krátce probereme, co se právě děje a zda pro tebe některá z možností spolupráce dává smysl.</p>
+        <div class="contact__actions">
+          <ActionLink href="tel:+420774991204">Zavolat Ditě</ActionLink>
+          <a href="mailto:dolezelovadita@seznam.cz">nebo napsat e-mail</a>
+        </div>
+        <small>Nezávazný kontakt · Havlíčkův Brod · podle služby také online</small>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

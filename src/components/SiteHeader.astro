@@ -1,0 +1,61 @@
+---
+const navItems = [
+  { label: 'Kde začít', href: '#kde-zacit' },
+  { label: 'Jak to probíhá', href: '#spoluprace' },
+  { label: 'Možnosti podpory', href: '#sluzby' },
+  { label: 'O Ditě', href: '#o-dite' },
+  { label: 'Časté otázky', href: '#otazky' },
+];
+---
+
+<header class="site-header" data-header>
+  <div class="shell site-header__inner">
+    <a class="brand" href="#top" aria-label="Moudrost pochopení – úvod">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 44 44">
+          <path d="M22 38C10 31 8 18 13 8c7 2 11 7 11 14 1-6 5-10 12-12 2 12-3 23-14 28Z" />
+          <path d="M22 37c0-8 1-15 8-22M22 35c-1-7-3-14-8-21" />
+        </svg>
+      </span>
+      <span>
+        <strong>Moudrost pochopení</strong>
+        <small>Dita Doleželová</small>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span></span><span></span>
+      <span class="sr-only">Otevřít menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Hlavní navigace" data-nav>
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a class="site-nav__cta" href="#kontakt">Nezávazný rozhovor</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const nav = document.querySelector('[data-nav]');
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    nav?.classList.toggle('is-open', !open);
+    document.body.classList.toggle('nav-open', !open);
+  });
+
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
+    });
+  });
+
+  const header = document.querySelector('[data-header]');
+  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 16);
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+</script>
