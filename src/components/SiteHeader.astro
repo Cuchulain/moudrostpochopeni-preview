@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-moudrost-pochopeni.png';
+
 const navItems = [
   { label: 'Kde začít', href: '#kde-zacit' },
   { label: 'Jak to probíhá', href: '#spoluprace' },
@@ -11,15 +14,8 @@ const navItems = [
 <header class="site-header" data-header>
   <div class="shell site-header__inner">
     <a class="brand" href="#top" aria-label="Moudrost pochopení – úvod">
-      <span class="brand__mark" aria-hidden="true">
-        <svg viewBox="0 0 44 44">
-          <path d="M22 38C10 31 8 18 13 8c7 2 11 7 11 14 1-6 5-10 12-12 2 12-3 23-14 28Z" />
-          <path d="M22 37c0-8 1-15 8-22M22 35c-1-7-3-14-8-21" />
-        </svg>
-      </span>
-      <span>
-        <strong>Moudrost pochopení</strong>
-        <small>Dita Doleželová</small>
+      <span class="brand__logo" aria-hidden="true">
+        <Image src={logo} alt="" format="webp" quality={80} />
       </span>
     </a>
 
