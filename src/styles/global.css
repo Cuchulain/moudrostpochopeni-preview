@@ -296,7 +296,6 @@ h3 {
   width: 210%;
   max-width: none;
   height: auto;
-  mix-blend-mode: multiply;
   transform: translate(-50%, -50%);
 }
 
@@ -489,28 +488,6 @@ h3 {
   stroke: var(--clay);
   stroke-linecap: round;
   stroke-width: 1.8;
-}
-
-.hero__scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: max(1.5rem, calc((100% - 1180px) / 2));
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--ink-soft);
-  font-size: 0.67rem;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
-}
-
-.hero__scroll i {
-  display: block;
-  width: 1px;
-  height: 2.6rem;
-  background: var(--clay);
 }
 
 .reveal {
@@ -1205,7 +1182,6 @@ h3 {
   .hero__copy { max-width: 700px; }
   .hero__visual { width: min(88%, 540px); margin-right: 2rem; }
   .hero__wash { top: 35%; right: -25%; width: 90vw; }
-  .hero__scroll { display: none; }
 
   .situations__grid { grid-template-columns: 1fr; }
   .situation-card { min-height: auto; padding: 2rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
