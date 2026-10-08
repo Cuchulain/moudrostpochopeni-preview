@@ -1,11 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import ActionLink from '../components/ActionLink.astro';
 import SectionIntro from '../components/SectionIntro.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import ditaAbout from '../assets/dita-about.webp';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const situations = [
   {
@@ -113,12 +113,10 @@ const iconPaths = {
 
         <div class="hero__visual reveal reveal--2">
           <div class="hero__arch">
-            <img
-              src={`${base}/dita-about.webp`}
+            <Image
+              src={ditaAbout}
               alt="Dita Doleželová při rozhovoru s klientkou"
-              width="768"
-              height="664"
-              loading="eager"
+              priority
             />
           </div>
           <div class="hero__signature" aria-hidden="true">
