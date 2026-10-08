@@ -140,7 +140,7 @@ h2 {
 h1 {
   max-width: 13ch;
   margin-bottom: 1.65rem;
-  font-size: clamp(3.15rem, 7vw, 6.35rem);
+  font-size: clamp(2.7rem, 5.8vw, 5.35rem);
 }
 
 h1 em {
@@ -151,12 +151,12 @@ h1 em {
 h2 {
   max-width: 16ch;
   margin-bottom: 1.5rem;
-  font-size: clamp(2.55rem, 5vw, 4.7rem);
+  font-size: clamp(2.25rem, 4.2vw, 3.95rem);
 }
 
 h3 {
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-size: clamp(1.4rem, 2.1vw, 1.8rem);
   font-weight: 500;
   line-height: 1.08;
 }
@@ -365,6 +365,10 @@ h3 {
   grid-template-columns: minmax(0, 1.07fr) minmax(360px, 0.8fr);
   gap: clamp(3rem, 8vw, 7rem);
   align-items: center;
+}
+
+.hero .eyebrow {
+  color: var(--ink-soft);
 }
 
 .hero__lead {
@@ -628,7 +632,7 @@ h3 {
 
 .process__steps h3 {
   margin-bottom: 0.75rem;
-  font-size: 1.85rem;
+  font-size: 1.7rem;
 }
 
 .services {
@@ -686,7 +690,7 @@ h3 {
 
 .service-card h3 {
   margin: 3rem 0 0.9rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .service-card p {
