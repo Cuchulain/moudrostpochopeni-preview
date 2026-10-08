@@ -282,8 +282,8 @@ h3 {
 
 .brand__logo {
   display: block;
-  width: 11.75rem;
-  height: 6rem;
+  width: 15.25rem;
+  height: 7.5rem;
   flex: none;
 }
 
@@ -1131,6 +1131,8 @@ h3 {
 @media (max-width: 980px) {
   :root { --shell: min(100% - 2.25rem, 760px); }
 
+  .brand__logo { width: 12rem; height: 5.75rem; }
+
   .site-nav {
     position: fixed;
     top: 0;
@@ -1197,7 +1199,7 @@ h3 {
 
   body { font-size: 0.96rem; }
   .section { padding-block: 5rem; }
-  .brand__logo { width: 10.5rem; height: 5rem; }
+  .brand__logo { width: 11.25rem; height: 5.4rem; }
   .hero { padding-block: 7.5rem 4.5rem; }
   .hero__actions { align-items: flex-start; flex-direction: column; }
   .hero__visual { width: calc(100% - 1rem); margin-right: 1rem; }
