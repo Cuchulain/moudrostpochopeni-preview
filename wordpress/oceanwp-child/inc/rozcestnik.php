@@ -20,32 +20,32 @@ function mp_areas(): array {
 		'emoce'    => array(
 			'title'   => 'Emoce a psychika',
 			'page'    => 'emoce-a-psychika',
-			'text'    => 'Když se v tobě hromadí stres, únava a nevyslovené pocity a tělo se začíná ozývat.',
+			'text'    => 'Únava, výkyvy nálad, vnitřní neklid a pocit, že ztrácíš kontrolu – v náročné práci i v době, kdy se mění tělo a role.',
 			'methods' => array( 'etikoterapie-a-emoce', 'psychosomatika' ),
 		),
 		'vztahy'   => array(
 			'title'   => 'Vztahy, změny a výzvy',
 			'page'    => 'vztahy-zmeny-a-vyzvy',
-			'text'    => 'Pracovní, osobní i toxické vztahy, rozchody, partnerské krize a životní křižovatky.',
+			'text'    => 'Rozchod, rozvod, partnerská krize nebo napětí v práci. Jak to ustát, neztratit se a nenést si zranění dál.',
 			'methods' => array( 'koucink', 'koucink-pro-muze' ),
 		),
 		'bachovky' => array(
 			'title'   => 'Bachovy květové esence',
 			'page'    => 'bachovy-kvetove-esence',
-			'text'    => 'Jemná přírodní podpora při emočním napětí, stresu a v náročných obdobích.',
+			'text'    => 'Když ti dochází energie i síla vůle a potřebuješ se o něco opřít. Směs namíchaná přesně pro tebe.',
 			'methods' => array(),
 		),
 		'telo'     => array(
 			'title'   => 'Tělo a dotek',
 			'page'    => 'kraniosakralni-terapie',
-			'text'    => 'Kraniosakrální terapie pro hluboké uvolnění, zklidnění a odpočinek.',
+			'text'    => 'Pro silné vnitřní napětí, dilema nebo konflikt, o kterém ještě nejsi připravená mluvit.',
 			'methods' => array( 'kraniosakralni-terapie' ),
 		),
 		'projekt'  => array(
 			'title'   => 'Teď jsem na řadě JÁ',
 			'label'   => 'Projekt',
 			'page'    => 'ted-jsem-na-rade-ja',
-			'text'    => 'Program pro ženy, které se dlouho staraly o všechny kolem a chtějí se vrátit samy k sobě.',
+			'text'    => 'Program pro ženy, které roky držely všechno pohromadě a teď chtějí žít i pro sebe.',
 			'methods' => array( 'seberespekt' ),
 		),
 	);
@@ -58,23 +58,23 @@ function mp_methods(): array {
 	return array(
 		'etikoterapie-a-emoce'   => array(
 			'title' => 'Etikoterapie',
-			'text'  => 'Pojmenuješ a zpracuješ nahromaděné pocity a emoce a pochopíš, proč se ti určité situace v životě opakují.',
+			'text'  => 'Najdeš příčiny dlouhodobé nespokojenosti a zpracuješ emoce, které tě stojí energii i radost.',
 		),
 		'psychosomatika'         => array(
 			'title' => 'Psychosomatika',
-			'text'  => 'Propojení psychologie, etikoterapie a uvolňujících technik. Porozumíš tomu, jak se emoce a naučené vzorce projevují na tvém těle.',
+			'text'  => 'Pochopíš, jak se stres, emoce a naučené vzorce propisují do tvého těla, a vystoupíš z kruhu únavy a povinností.',
 		),
 		'koucink'                => array(
 			'title' => 'Koučink',
-			'text'  => 'Ujasníš si, co chceš, najdeš vlastní řešení a uděláš kroky, které můžeš ovlivnit – v práci i v osobním životě.',
+			'text'  => 'Strukturovaná práce na konkrétním cíli – rozhodnutí, kariéra, hranice, priority. S jasným plánem dalších kroků.',
 		),
 		'koucink-pro-muze'       => array(
 			'title' => 'Párová konzultace',
-			'text'  => 'Prostor pro oba partnery: pochopit, co mezi vámi drhne, a najít cestu, jak spolu znovu mluvit.',
+			'text'  => 'Pro páry, které chtějí od vztahu víc než jen žít vedle sebe – nebo se potřebují rozejít bez dalších zranění.',
 		),
 		'kraniosakralni-terapie' => array(
 			'title' => 'Kraniosakrální terapie',
-			'text'  => 'Jemný dotek, který pomáhá tělu i mysli zpomalit a hluboce si odpočinout.',
+			'text'  => 'Hluboké uvolnění napětí přes jemný dotek – i bez potřeby o všem mluvit.',
 		),
 		'seberespekt'            => array(
 			'title' => 'E-book SEBErespekt zdarma',
@@ -120,7 +120,7 @@ add_shortcode(
 		$atts    = shortcode_atts(
 			array(
 				'eyebrow' => 'Jak ti můžu pomoci',
-				'title'   => 'Vyber si, co tě teď nejvíc trápí',
+				'title'   => 'S čím za mnou klientky nejčastěji přicházejí',
 			),
 			$atts
 		);
