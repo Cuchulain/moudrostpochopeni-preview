@@ -48,6 +48,16 @@ Nadpisy používají globální barvu Elementoru „Starorůžová“ (#96576A) 
 docker compose run --rm cli wp eval-file /opt/moudrost/migrations/headings.php
 ```
 
+## Statické preview
+
+https://cuchulain.github.io/moudrostpochopeni-preview/ ukazuje statický export lokální kopie (`noindex`, formuláře a vyhledávání nefungují, obrázky jsou převedené na WebP). Aktualizace:
+
+```bash
+wordpress/publish-preview.sh
+```
+
+Skript spustí `export-static.sh`, výsledek commitne do samostatné větve `wp-static` (obrázky nepatří do historie `main`) a spustí workflow `deploy.yml`, který ji z `main` nasadí.
+
 ## Bezpečnost lokální kopie
 
 `mu-plugins/local-dev.php` v prostředí `local` blokuje všechny odchozí e-maily (formuláře se tváří jako odeslané, zpráva jen skončí v logu) a zakazuje indexaci.
