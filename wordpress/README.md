@@ -40,6 +40,14 @@ Stránky oblastí, Psychosomatiku, napojení stávajících stránek a hlavní m
 docker compose run --rm cli wp eval-file /opt/moudrost/migrations/rozcestnik.php
 ```
 
+## Prodejní texty
+
+Texty cílí na finančně zajištěné klientky, které chtějí skutečnou změnu (podnikatelky, manažerky, ženy podnikatelů, typicky 40+). `migrations/texty.php` přepisuje vybrané widgety stávajících stránek, ale jen dokud v nich je původní text – pozdější úpravy v Elementoru nepřepíše. Texty generovaných stránek oblastí jsou v `migrations/rozcestnik.php` (při změně zvýšit `MP_CONTENT_VERSION`), texty karet v `oceanwp-child/inc/rozcestnik.php`.
+
+```bash
+docker compose run --rm cli wp eval-file /opt/moudrost/migrations/texty.php
+```
+
 ## Nadpisy
 
 Nadpisy používají globální barvu Elementoru „Starorůžová“ (#96576A) – změnou v Nastavení webu → Globální barvy se přebarví všechny. Velikosti a barvy převede jednorázová migrace (po `rozcestnik.php`, podruhé se nespustí):
