@@ -1,0 +1,311 @@
+/*
+ * Design tokens from the Astro preview. Colors and fonts of individual elements
+ * are set in the Customizer and Elementor Site Settings (wordpress/migrations/rebrand.php);
+ * this file only covers what those settings cannot express.
+ */
+
+:root {
+	--mp-ink: #302b2d;
+	--mp-ink-soft: #62565b;
+	--mp-paper: #f7f2ed;
+	--mp-paper-deep: #ede3de;
+	--mp-rose: #96576a;
+	--mp-burgundy: #6c283f;
+	--mp-rose-pale: #eadde1;
+	--mp-clay: #8c4057;
+	--mp-clay-pale: #eed6df;
+	--mp-white: #fffcf9;
+	--mp-line: rgba(72, 39, 50, 0.17);
+	--mp-serif: 'Newsreader', Georgia, serif;
+	--mp-sans: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+::selection {
+	color: var(--mp-white);
+	background: var(--mp-burgundy);
+}
+
+h1,
+h2,
+h3,
+.elementor-heading-title {
+	text-wrap: balance;
+}
+
+h1 em,
+h2 em,
+.elementor-heading-title em {
+	color: var(--mp-clay);
+	font-style: italic;
+}
+
+a:focus-visible,
+button:focus-visible,
+.elementor-button:focus-visible {
+	outline: 2px solid var(--mp-clay);
+	outline-offset: 3px;
+}
+
+/* Logo: transparent PNG with a wide aspect ratio, keep it crisp and contained. */
+#site-logo #site-logo-inner a img {
+	width: auto;
+	object-fit: contain;
+}
+
+#site-header {
+	border-bottom: 1px solid var(--mp-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+	}
+}
+
+/* --- Rozcestník (inc/rozcestnik.php) ------------------------------------------ */
+
+.mp-eyebrow {
+	margin: 0 0 0.9rem;
+	color: var(--mp-clay);
+	font-family: var(--mp-sans);
+	font-size: 0.76rem;
+	font-weight: 600;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+.mp-rozcestnik {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.mp-rozcestnik__intro {
+	max-width: 730px;
+	margin: 0 auto clamp(2rem, 4vw, 3rem);
+	text-align: center;
+}
+
+.mp-rozcestnik__intro h2 {
+	margin: 0;
+	color: var(--mp-rose);
+	font-family: var(--mp-serif);
+	font-size: clamp(2.2rem, 4vw, 3.4rem);
+	font-weight: 400;
+	line-height: 1.05;
+	letter-spacing: -0.03em;
+}
+
+.mp-rozcestnik__grid,
+.mp-metody {
+	display: grid;
+	gap: 1.25rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.mp-rozcestnik__grid {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+/* 3 + 2 layout: first row of three, second row of two wider cards. */
+.mp-rozcestnik__grid > .mp-card {
+	grid-column: span 2;
+}
+
+.mp-rozcestnik__grid > .mp-card:nth-child(n + 4) {
+	grid-column: span 3;
+}
+
+.mp-metody {
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+}
+
+.mp-card {
+	position: relative;
+	letter-spacing: normal;
+	display: flex;
+	min-height: 17rem;
+	margin: 0;
+	padding: clamp(1.5rem, 3vw, 2.25rem);
+	border: 1px solid var(--mp-line);
+	border-radius: 1.25rem;
+	background: rgba(255, 252, 249, 0.72);
+	flex-direction: column;
+	transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.mp-card:hover,
+.mp-card:focus-within {
+	box-shadow: 0 24px 70px rgba(55, 28, 40, 0.15);
+	transform: translateY(-5px);
+}
+
+.mp-card.is-current {
+	border-color: var(--mp-clay);
+	background: var(--mp-clay-pale);
+}
+
+.mp-card__number {
+	margin-bottom: 1.5rem;
+	color: var(--mp-clay);
+	font-size: 0.76rem;
+	font-weight: 600;
+	letter-spacing: 0.13em;
+	text-transform: uppercase;
+}
+
+.mp-card__title {
+	margin: 0 0 0.7rem;
+	font-family: var(--mp-serif);
+	font-size: clamp(1.7rem, 2.5vw, 2.15rem);
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.mp-card__link,
+.mp-card__link:visited {
+	color: var(--mp-rose);
+	text-decoration: none;
+}
+
+/* The whole card is clickable through the title link. */
+.mp-card__link::after {
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	content: '';
+}
+
+.mp-card:hover .mp-card__link {
+	color: var(--mp-burgundy);
+}
+
+.mp-card__link:focus-visible {
+	outline: none;
+}
+
+.mp-card:has(.mp-card__link:focus-visible) {
+	outline: 2px solid var(--mp-clay);
+	outline-offset: 3px;
+}
+
+.mp-card__text {
+	margin: 0 0 1.2rem;
+	color: var(--mp-ink-soft);
+	font-size: 0.98rem;
+	line-height: 1.6;
+}
+
+.mp-card__methods {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0 0 1.4rem;
+	padding: 0;
+	list-style: none;
+}
+
+.mp-card__methods a {
+	display: inline-block;
+	padding: 0.3rem 0.85rem;
+	border: 1px solid var(--mp-line);
+	border-radius: 999px;
+	color: var(--mp-burgundy);
+	background: var(--mp-white);
+	font-size: 0.86rem;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.mp-card__methods a:hover {
+	border-color: var(--mp-burgundy);
+}
+
+.mp-card__more {
+	margin-top: auto;
+	color: var(--mp-burgundy);
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+.mp-card__more::after {
+	content: ' →';
+}
+
+.mp-card.is-current .mp-card__more::after {
+	content: '';
+}
+
+.mp-drobecky {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 1.1rem 1.5rem 0;
+	font-size: 0.86rem;
+}
+
+.mp-drobecky ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.35rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.mp-drobecky li + li::before {
+	margin-right: 0.35rem;
+	color: var(--mp-ink-soft);
+	content: '›';
+}
+
+.mp-drobecky a {
+	color: var(--mp-burgundy);
+}
+
+.mp-drobecky [aria-current] {
+	color: var(--mp-ink-soft);
+}
+
+@media (max-width: 980px) {
+	.mp-rozcestnik__grid > .mp-card,
+	.mp-rozcestnik__grid > .mp-card:nth-child(n + 4) {
+		grid-column: span 3;
+	}
+
+	.mp-rozcestnik__grid > .mp-card:last-child {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 640px) {
+	.mp-rozcestnik__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.mp-rozcestnik__grid > .mp-card,
+	.mp-rozcestnik__grid > .mp-card:nth-child(n + 4),
+	.mp-rozcestnik__grid > .mp-card:last-child {
+		grid-column: auto;
+	}
+
+	.mp-card {
+		min-height: 0;
+	}
+
+	.mp-drobecky {
+		padding-inline: 1rem;
+	}
+}
