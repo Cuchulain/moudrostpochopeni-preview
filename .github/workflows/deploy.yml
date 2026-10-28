@@ -1,5 +1,9 @@
 name: Deploy to GitHub Pages
 
+# Publishes the static export of the local WordPress (wordpress/export-static.sh),
+# committed to the wp-static branch. Pages may only deploy from main, so the
+# workflow runs here and checks out the export.
+
 on:
   push:
     branches: [main]
@@ -15,23 +19,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install, build, and upload
-        uses: withastro/action@v3
-        with:
-          node-version: 22
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Checkout static export
+        uses: actions/checkout@v4
+        with:
+          ref: wp-static
+      - name: Upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

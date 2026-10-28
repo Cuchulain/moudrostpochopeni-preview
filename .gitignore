@@ -3,3 +3,6 @@ dist/
 .astro/
 .DS_Store
 *.log
+
+# Local WordPress copy (backup contains personal data)
+local/
