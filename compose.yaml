@@ -1,0 +1,73 @@
+# Local copy of moudrostpochopeni.cz for theme development.
+# Data comes from an UpdraftPlus backup, see wordpress/README.md.
+
+name: moudrostpochopeni
+
+x-wp-env: &wp-env
+  WORDPRESS_DB_HOST: db
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: wordpress
+  WORDPRESS_DB_PASSWORD: wordpress
+  WORDPRESS_CONFIG_EXTRA: |
+    define( 'WP_HOME', 'http://localhost:8080' );
+    define( 'WP_SITEURL', 'http://localhost:8080' );
+    define( 'WP_ENVIRONMENT_TYPE', 'local' );
+    define( 'WP_MEMORY_LIMIT', '256M' );
+    define( 'DISABLE_WP_CRON', true );
+
+x-wp-volumes: &wp-volumes
+  - wp-core:/var/www/html
+  - ./local/wp-content:/var/www/html/wp-content
+  - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+  - ./wordpress/oceanwp-child:/var/www/html/wp-content/themes/oceanwp-child
+
+# Table prefix is detected from the SQL dump by wordpress/import-backup.sh.
+x-wp-env-file: &wp-env-file
+  - path: local/wordpress.env
+    required: false
+
+services:
+  db:
+    image: mariadb:10.11
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      retries: 30
+
+  wordpress:
+    image: wordpress:php8.4-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    env_file: *wp-env-file
+    environment: *wp-env
+    volumes: *wp-volumes
+
+  cli:
+    image: wordpress:cli-php8.4
+    profiles: [cli]
+    user: "33:33"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file: *wp-env-file
+    environment: *wp-env
+    volumes:
+      - wp-core:/var/www/html
+      - ./local/wp-content:/var/www/html/wp-content
+      - ./wordpress/mu-plugins:/var/www/html/wp-content/mu-plugins:ro
+      - ./wordpress/oceanwp-child:/var/www/html/wp-content/themes/oceanwp-child
+      - ./wordpress:/opt/moudrost:ro
+
+volumes:
+  wp-core:
+  db-data:
